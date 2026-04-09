@@ -286,7 +286,7 @@ with tab1:
         margin=dict(l=0, r=0, t=50, b=0)
     )
     
-    st.plotly_chart(fig, use_container_width=True)
+    st.plotly_chart(fig, width='stretch')
 
 with tab2:
     st.subheader("Deflatör Hassasiyet (Duyarlılık) Tablosu")
@@ -340,7 +340,7 @@ with tab2:
         })
         .background_gradient(subset=['Tahmini Büyüme (%)'], cmap='RdYlGn')
         .apply(lambda x: ['background-color: #333333; color: white' if x['Senaryo'] == 'MEVCUT (BAZ)' else '' for i in x], axis=1),
-        use_container_width=True, height=350
+        width='stretch', height=350
     )
 
 with tab3:
@@ -364,7 +364,7 @@ with tab3:
             'P-Değeri': '{:.4f}',
             'T-İstatistiği': '{:.4f}'
         }).apply(highlight_pval, subset=['P-Değeri']),
-        use_container_width=True
+        width='stretch'
     )
     
     st.text(model.summary().as_text())
@@ -397,5 +397,5 @@ with tab4:
             height=300,
             margin=dict(l=0, r=0, t=30, b=0)
         )
-        st.plotly_chart(fig2, use_container_width=True)
+        st.plotly_chart(fig2, width='stretch')
 
